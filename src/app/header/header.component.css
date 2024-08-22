@@ -1,0 +1,55 @@
+/* Basic styling for the navbar */
+.navbar {
+  width: 100%;
+  height: 100px;
+  transition: all 1s;
+}
+
+.navbar.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Optional shadow for better visual effect */
+}
+
+.navbar-toggler:focus,
+.offcanvas-header .btn-close:focus {
+  box-shadow: none;
+}
+
+.btn-close:hover {
+  transform: rotate(360deg);
+  transition: all 1s;
+}
+
+.nav-link.active {
+  color: red;
+  position: relative;
+}
+
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+}
+
+.navbar-brand img {
+  height: 70px;
+}
+
+@media (max-width: 767px) {
+  .offcanvas {
+    background-color: #000000ab !important;
+    color: white !important;
+  }
+
+  .offcanvas .nav-link {
+    color: white;
+  }
+}
