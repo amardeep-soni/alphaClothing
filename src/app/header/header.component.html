@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light" aria-label="Offcanvas navbar large"
+<nav class="navbar navbar-expand-md" aria-label="Offcanvas navbar large"
   [ngClass]="{'fixed-top': isFixed}">
   <div class="cont d-flex align-items-center justify-content-between" bis_skin_checked="1">
-    <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/images/logos/alphaClothing.png" alt="Logo image"></a>
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/images/logos/logo.png" alt="Logo image"></a>
 
     <div class="offcanvas offcanvas-end text-bg-light w-100" tabindex="-1" id="offcanvasNavbar2"
       aria-labelledby="offcanvasNavbar2Label" bis_skin_checked="1">
@@ -13,16 +13,16 @@
         bis_skin_checked="1">
         <ul class="navbar-nav justify-content-md-center justify-content-start flex-md-grow-1 align-items-center pe-3">
           <li class="nav-item">
-            <a class="nav-link mx-2" [routerLink]="['/home']" routerLinkActive="active"  >Home</a>
+            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"  >Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Products</a>
+            <a class="nav-link mx-3" href="#">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">About Us</a>
+            <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Contact</a>
+            <a class="nav-link ms-3" href="#">Contact</a>
           </li>
         </ul>
       </div>
@@ -30,18 +30,18 @@
 
     <div class="d-flex mt-0">
       <ul class="navbar-nav flex-row">
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2"><i class="fa fa-search"></i></a>
+        <li>
+          <a href="#" class="nav-link px-0"><i class="fa fa-search"></i></a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2"><i class="fa fa-user"></i></a>
+        <li>
+          <a href="#" class="nav-link mx-2 px-2"><i class="fa fa-user"></i></a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2"><i class="fa fa-shopping-cart"></i></a>
+        <li>
+          <a href="#" class="nav-link px-0"><i class="fa fa-shopping-cart"></i></a>
         </li>
       </ul>
 
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+      <button class="navbar-toggler ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
         aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

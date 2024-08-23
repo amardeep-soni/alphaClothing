@@ -3,6 +3,8 @@
   width: 100%;
   height: 100px;
   transition: all 1s;
+  background-color: var(--bs-gray-100);
+  font-size: 24px;
 }
 
 .navbar.fixed-top {
@@ -40,8 +42,9 @@
 }
 
 .navbar-brand img {
-  height: 70px;
+  height: 50px;
 }
+
 
 @media (max-width: 767px) {
   .offcanvas {
@@ -51,5 +54,19 @@
 
   .offcanvas .nav-link {
     color: white;
+  }
+  .navbar-brand img {
+    height: 50px;
+  }
+}
+@media (max-width: 840px) {
+  .navbar-brand img {
+    height: 40px;
+  }
+  .navbar-nav .nav-item:nth-child(2) .nav-link{
+    margin: 0 8px !important;
+  }
+  .navbar-nav .nav-item:nth-child(4) .nav-link{
+    margin-left: 8px !important;
   }
 }
