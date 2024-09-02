@@ -1,5 +1,4 @@
-<nav class="navbar navbar-expand-md" aria-label="Offcanvas navbar large"
-  [ngClass]="{'fixed-top': isFixed}">
+<nav class="navbar navbar-expand-md" aria-label="Offcanvas navbar large" [ngClass]="{'fixed-top': isFixed}">
   <div class="cont d-flex align-items-center justify-content-between" bis_skin_checked="1">
     <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/images/logos/logo.png" alt="Logo image"></a>
 
@@ -13,7 +12,7 @@
         bis_skin_checked="1">
         <ul class="navbar-nav justify-content-md-center justify-content-start flex-md-grow-1 align-items-center pe-3">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"  >Home</a>
+            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3" href="#">Products</a>
@@ -31,13 +30,13 @@
     <div class="d-flex mt-0">
       <ul class="navbar-nav flex-row">
         <li>
-          <a href="#" class="nav-link px-0"><i class="fa fa-search"></i></a>
+          <mat-icon>search</mat-icon>
+        </li>
+        <li class="mx-2">
+          <mat-icon>account_circle</mat-icon>
         </li>
         <li>
-          <a href="#" class="nav-link mx-2 px-2"><i class="fa fa-user"></i></a>
-        </li>
-        <li>
-          <a href="#" class="nav-link px-0"><i class="fa fa-shopping-cart"></i></a>
+          <mat-icon>shopping_cart</mat-icon>
         </li>
       </ul>
 

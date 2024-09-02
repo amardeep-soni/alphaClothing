@@ -3,15 +3,15 @@
     <div class="cont">
       <div class="content">
         <h1>Brand New Collection</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eum doloribus et at modi officia molestias
+        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eum doloribus et at modi officia molestias
           minima provident. Enim, eveniet?</p>
 
-        <ul class="list-group list-group-horizontal">
+        <ul class="list-group list-group-horizontal mb-3">
           <li class="list-group-item"><i class="fa fa-circle-check me-2"></i> <span>Top Brands</span></li>
           <li class="list-group-item"><i class="fa fa-circle-check me-2"></i> <span>High Quality</span></li>
           <li class="list-group-item"><i class="fa fa-circle-check me-2"></i> <span>Free Delivery</span></li>
         </ul>
-        <button class="btn btn-danger mt-3">Shop Now</button>
+        <button mat-flat-button>Shop Now</button>
       </div>
     </div>
   </div>
@@ -19,23 +19,23 @@
 
 
   <section id="second" class="bg-dark text-white">
-    <div class="cont row">
-      <div class="col-sm-6 col-lg-3 my-5 text-center">
+    <div class="cont row pt-5">
+      <div class="col-sm-6 col-lg-3 text-center mb-5">
         <i class="fa-regular fa-credit-card display-5 pb-2"></i>
         <h4>Secure Payment</h4>
         <p class="p-0">100% Secure Payment</p>
       </div>
-      <div class="col-sm-6 col-lg-3 my-5 text-center">
+      <div class="col-sm-6 col-lg-3 text-center mb-5">
         <i class="fa-solid fa-money-bill-transfer display-5 pb-2"></i>
         <h4>30 Days Return</h4>
         <p class="p-0">If goods have problems</p>
       </div>
-      <div class="col-sm-6 col-lg-3 my-5 text-center">
+      <div class="col-sm-6 col-lg-3 text-center mb-5">
         <i class="fa-solid fa-headset display-5 pb-2"></i>
         <h4>24/7 Support</h4>
         <p class="p-0">Dediacted Support</p>
       </div>
-      <div class="col-sm-6 col-lg-3 my-5 text-center">
+      <div class="col-sm-6 col-lg-3 text-center mb-5">
         <i class="fa-solid fa-hand-holding-dollar display-5 pb-2"></i>
         <h4>Free Delivery</h4>
         <p class="p-0">For all order over 80$</p>
@@ -70,8 +70,12 @@
               </ng-container>
               <span class="text-dark ms-2">({{product.totalUserRated | number}} reviews)</span>
           </div>
-            <p class="mb-1">{{product.category}}</p>
-            <button class="btn btn-primary"><i class="fa-solid fa-cart-arrow-down me-2"></i> Add to cart</button>
+            <p class="mb-2">{{product.category}}</p>
+            <!-- <button class="btn btn-primary"><i class="fa-solid fa-cart-arrow-down me-2"></i> Add to cart</button> -->
+            <button mat-flat-button>
+              <mat-icon>add_shopping_cart</mat-icon>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
