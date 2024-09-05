@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { Product } from '../interfaces';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  products: any[] = [
+  products: Product[] = [
     {
       image: 'https://i.pinimg.com/564x/62/27/19/62271966ee39ef849fa499a5620516a3.jpg',
-      title: 'Casual T-Shirt',
+      name: 'Casual T-Shirt',
       newPrice: 19.99,
       oldPrice: 0,
       category: 'Clothing',
@@ -23,7 +24,7 @@ export class HomeComponent {
     },
     {
       image: 'https://assets.gqindia.com/photos/64f87619a950de2459eeb4d4/16:9/w_1920,c_limit/Shah-Rukh-Khan%E2%80%99s-iconic-shirt-from-%E2%80%98Pathaan%E2%80%99-can-be-yours-at-this-affordable-price_001.jpg',
-      title: 'Shirt',
+      name: 'Shirt',
       newPrice: 49.99,
       oldPrice: 69.99,
       category: 'Clothing',
@@ -32,7 +33,7 @@ export class HomeComponent {
     },
     {
       image: 'https://e0.pxfuel.com/wallpapers/67/960/desktop-wallpaper-kgf-hero-rocky-bhai.jpg',
-      title: 'Leather Jacket',
+      name: 'Leather Jacket',
       newPrice: 149.99,
       oldPrice: 199.99,
       category: 'Clothing',
@@ -41,7 +42,7 @@ export class HomeComponent {
     },
     {
       image: 'https://images.news18.com/ibnlive/uploads/2023/07/324701978_1386965885429372_493005967462813935_n.jpg',
-      title: 'Saree',
+      name: 'Saree',
       newPrice: 39.99,
       oldPrice: 59.99,
       category: 'Clothing',

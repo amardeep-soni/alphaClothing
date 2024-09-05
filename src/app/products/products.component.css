@@ -1,0 +1,201 @@
+.minHeader {
+  background-color: var(--bs-gray-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-container {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+}
+
+.new-price {
+  font-weight: bold;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.filterSection {
+  height: 100%;
+  background-color: white;
+  border: 1px solid #888;
+}
+
+
+
+.filterHam {
+  font-size: 40px;
+  display: none;
+}
+
+.filterHam.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),
+::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple),
+::ng-deep div.mat-mdc-select-panel {
+  background-color: white !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #005dbb25 !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled):hover,
+::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple):hover,
+::ng-deep .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+  background-color: #005dbb25 !important;
+}
+
+::ng-deep .mat-mdc-form-field .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+mat-slider {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceSection mat-form-field {
+  width: 47%;
+}
+
+.fa-star {
+  padding-right: 4px;
+}
+
+.fa-star.fa-solid {
+  color: #ffd700;
+}
+
+.fa-star.gray {
+  color: #d9d9d9;
+}
+
+.rating span {
+  color: #9b9a9a;
+}
+
+.rating.ratingActive {
+  background-color: #888;
+}
+
+.rating.ratingActive span {
+  color: black;
+}
+
+.filterApplied{
+  border: 1px solid #9b9a9a;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 8px;
+}
+.filterApplied i{
+  margin-left: 8px;
+  color: #9b9a9a;
+}
+
+@media (min-width: 576px) {
+  .col-sm-3 {
+    width: 27%;
+  }
+
+  .col-sm-9 {
+    width: 72%;
+  }
+}
+
+@media (min-width: 1140px) {
+  .col-lg-2 {
+    width: 20%;
+  }
+
+  .col-lg-10 {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1140px) AND (min-width: 991px) {
+  .col-lg-4 {
+    width: 50%;
+  }
+}
+
+
+@media (max-width: 845px) {
+  .filterSection {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    width: 320px;
+    padding: 60px 20px 20px 20px !important;
+    transition: all 0.5s;
+  }
+
+  .overlay.show {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #ffffff90;
+    width: 100vw;
+    height: 100%;
+    z-index: 100;
+  }
+
+  .filterSection.show {
+    right: 0;
+  }
+
+  .filterSection.hide {
+    right: -380px;
+  }
+
+  .cardSection {
+    width: 100%;
+  }
+
+  .filterHam {
+    display: block;
+  }
+}

@@ -46,3 +46,13 @@ a {
 a:hover {
   text-decoration: underline
 }
+.breadcrumb{
+  font-size: 18px;
+}
+.breadcrumb .active{
+  color: #005cbb;
+  font-weight: bold;
+}
+.breadcrumb a:hover{
+  text-decoration-color: #005cbb;
+}
