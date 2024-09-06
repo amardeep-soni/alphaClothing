@@ -2,10 +2,10 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-      <li class="breadcrumb-item active">Products</li>
+      <li class="breadcrumb-item active">{{title | titlecase}}</li>
     </ol>
   </nav>
-  <h1 class="display-2 fw-semibold">Products</h1>
+  <h1 class="display-2 fw-semibold">{{title | titlecase}}</h1>
 </div>
 
 <div class="productsCont">
@@ -21,8 +21,8 @@
           <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterAndSort()">
         </mat-form-field>
 
-        <h4 class="mt-4">Price Range</h4>
-        <section class="priceSection">
+        <h4 class="mt-3">Price Range</h4>
+        <div class="priceSection">
           <mat-form-field class="example-margin example-width">
             <mat-label>Min</mat-label>
             <input matInput type="number" [(ngModel)]="priceRangeMin" (input)="filterAndSort()">
@@ -31,19 +31,19 @@
             <mat-label>Max</mat-label>
             <input matInput type="number" [(ngModel)]="priceRangeMax" (input)="filterAndSort()">
           </mat-form-field>
-        </section>
+        </div>
 
-        <h4 class="mt-3">Category</h4>
-        <section class="example-section">
+        <div class="mt-3" *ngIf="title.toLowerCase() == 'products'">
+          <h4>Category</h4>
           <div *ngFor="let c of category">
             <mat-checkbox class="example-margin" (change)="categoryChange($event, c)" [checked]="isCategorySelected(c)">
               {{ c }}
             </mat-checkbox>
           </div>
-        </section>
+        </div>
 
-        <h4>Rating</h4>
-        <div class="ratingCont">
+        <div class="ratingCont mt-3">
+          <h4>Rating</h4>
           <mat-radio-button *ngFor="let rating of [5,4,3,2,1]" class="rating" (change)="ratingFil(rating)"
             [checked]="selectedRating == rating">
             <ng-container *ngFor="let star of [].constructor(5); let i = index">

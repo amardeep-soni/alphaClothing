@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -25,9 +25,10 @@ import { Observable } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef, private route: ActivatedRoute) {
 
+  }
+  title: string = '';
   products: Product[] = [
     {
       image: 'https://i.pinimg.com/564x/62/27/19/62271966ee39ef849fa499a5620516a3.jpg',
@@ -208,7 +209,15 @@ export class ProductsComponent implements OnInit {
   dataSource: MatTableDataSource<Product> = new MatTableDataSource<Product>();
 
   ngOnInit(): void {
-
+    this.route.params.subscribe(params => {
+      let category = params['category'];
+      if (category) {
+        this.title = category;
+        this.products = this.products.filter(product => product.category?.toLowerCase() == category.toLowerCase());
+      } else {
+        this.title = 'Products';
+      }
+    });
     this.filterAndSort();
   }
 
