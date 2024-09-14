@@ -91,8 +91,8 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-6 col-lg-4 my-2 text-center" *ngFor="let product of obs | async">
-            <mat-card class="card me-2">
+          <div class="col-sm-6 col-lg-4 my-2" *ngFor="let product of obs | async">
+            <mat-card class="card me-2" (click)="productDetails(0)">
               <div class="image-container">
                 <img [src]="product.image" class="card-img-top" alt="Product image">
               </div>

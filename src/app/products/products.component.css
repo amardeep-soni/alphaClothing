@@ -131,6 +131,15 @@ mat-slider {
   margin-left: 8px;
   color: #9b9a9a;
 }
+.card{
+  cursor: pointer;
+}
+.card img{
+  transition: transform .8s ease
+}
+.card:hover img{
+  transform: scale(1.2);
+}
 
 @media (min-width: 576px) {
   .col-sm-3 {

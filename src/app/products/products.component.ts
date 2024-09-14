@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -25,7 +25,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private route: ActivatedRoute) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, private route: ActivatedRoute, private router: Router) {
 
   }
   title: string = '';
@@ -386,5 +386,9 @@ export class ProductsComponent implements OnInit {
 
     this.filterApplied = [];
     this.filterAndSort();
+  }
+
+  productDetails(id: number) {
+    this.router.navigate(['/products', id]);
   }
 }

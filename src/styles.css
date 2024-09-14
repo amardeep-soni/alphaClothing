@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -20,7 +21,6 @@ body {
   width: 100%;
   max-width: 1480px;
   margin: auto;
-  height: 100%;
   padding: 0 20px;
 }
 
@@ -46,13 +46,20 @@ a {
 a:hover {
   text-decoration: underline
 }
-.breadcrumb{
+
+.breadcrumb {
   font-size: 18px;
 }
-.breadcrumb .active{
+
+.breadcrumb .active {
   color: #005cbb;
   font-weight: bold;
 }
-.breadcrumb a:hover{
+
+.breadcrumb a:hover {
   text-decoration-color: #005cbb;
+}
+
+.ratingGray {
+  color: #d9d9d9;
 }

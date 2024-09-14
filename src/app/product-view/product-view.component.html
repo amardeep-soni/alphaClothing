@@ -1,0 +1,264 @@
+<div class="cont">
+    <div class="proudctView mt-5">
+        <div class="row mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                    <li class="breadcrumb-item">
+                        <a
+                            [routerLink]="['/product-category/', product.category.toLowerCase()]">{{product.category|titlecase}}</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{product.name| titlecase}}</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-4 d-flex justify-content-center align-items-center flex-column">
+                <div style="width: 320px;">
+                    <swiper-container #bigSwiper class="mySwiper" effect="cards" grab-cursor="true"
+                        centered-slides="true" thumbs-swiper=".mySwiper2">
+                        @for (item of allImages; track $index; let i = $index) {
+                        <swiper-slide>
+                            <!-- <div class="bigImage me-3" style="background-image: url('{{item}}');"></div> -->
+                            <img [src]="item" class="bigImage" [id]="'myimage' + i">
+                        </swiper-slide>
+                        }
+                    </swiper-container>
+                </div>
+
+
+                <div style="width: 80%; position: relative;">
+                    <swiper-container #smallSwiper class="mySwiper2" space-between="5" slides-per-view="6"
+                        free-mode="true" navigation="true">
+                        @for (item of allImages; track $index) {
+                        <swiper-slide>
+                            <!-- <img [src]="item" (click)="zoomInit()"> -->
+                            <img [src]="item" (click)="onMouseLeave()">
+                        </swiper-slide>
+                        }
+                    </swiper-container>
+                    <button class="btn swiper-button-prev" (click)="swiper.nativeElement.swiper.slidePrev()"
+                        [disabled]="isNavDisable('prev')">
+                        <i class="fa fa-angle-left"></i>
+                    </button>
+                    <button class="btn swiper-button-next" [disabled]="isNavDisable('next')"
+                        (click)="swiper.nativeElement.swiper.slideNext()">
+                        <i class="fa fa-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-5 position-relative">
+                <div id="zoomedImage" class="img-zoom-result"></div>
+
+                <h2>{{product.name}}</h2>
+
+                <div class="my-3">
+                    <ng-container *ngFor="let star of getStars(product.rating)">
+                        <i class="text-warning me-1" [ngClass]="star"></i>
+                    </ng-container>
+                    <a (click)="scrollToSection()" class="text-primary">({{ product.totalUserRated > 0 ?
+                        product.totalUserRated +
+                        ' Reviews': 'No rating yet' }})
+                    </a>
+                </div>
+
+                <div class="my-2 d-flex align-items-center">
+                    <ng-container *ngIf="oldPrice; else noOldPrice">
+                        <h4 class="new-price">{{ newPrice | currency:'INR' }}</h4>
+                        <h5 class="old-price">{{ oldPrice | currency:'INR' }}</h5>
+                    </ng-container>
+                    <ng-template #noOldPrice>
+                        <h4 class="new-price">{{ newPrice | currency:'INR' }}</h4>
+                    </ng-template>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="mb-2"><strong>Color Family: </strong>
+                        <span class="text-muted">{{hoverColorName == '' ?
+                            product.defaultColor : hoverColorName}}</span>
+                    </h6>
+
+                    <div class="color-family d-flex flex-wrap">
+                        @for (item of allColors; track $index) {
+                        <span class="color-items smallImage me-3" style="background-image: url('{{item.image}}');"
+                            [ngClass]="{'active': product.defaultColor == item.color}"
+                            (mouseenter)="hoverColorFamily(item)" (mouseleave)="hoverLeaveColorFamily()"
+                            (click)="filterVariant(item.color, '')"></span>
+                        }
+                    </div>
+                </div>
+
+                <div class="sizes">
+                    <h6 class="mb-2"><strong>Sizes: </strong>
+                        <span class="text-muted">{{product.defaultSize}}</span>
+                    </h6>
+
+                    @for (item of allSizes; track $index) {
+                    <button class="btn sizeBtn me-2 py-1" [style.minWidth.px]="48"
+                        [ngClass]="{'active': item == product.defaultSize}" (click)="filterVariant('',item)"
+                        [disabled]="!isSizeDisabled(item)">{{item}}</button>
+                    }
+                </div>
+
+                <hr>
+
+                <div class="quantityCartCont mt-4 mb-3">
+                    <div class="quantityCont me-4">
+                        <span class="quantity">QUANTITY</span>
+                        <span class="minus" (click)="quantityChage('sub')">-</span>
+                        <input type="text" class="inputField" [(ngModel)]="quantityCounter"
+                            (change)="quantityChage('input')">
+                        <span class="plus" (click)="quantityChage('add')">+</span>
+                    </div>
+                    <div>
+                        <button mat-flat-button>
+                            <mat-icon>add_shopping_cart</mat-icon>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <hr>
+                <h6><strong>CATEGORY: </strong> <span class="text-muted">{{product.category}}</span></h6>
+                <h6><strong>BRAND: </strong> <span class="text-muted">{{product.brand}}</span></h6>
+
+            </div>
+            <div class="col-3 topProducts">
+                <h4>Top Product on {{product.category }}</h4>
+                @for (product of sameCategoryProduct; track $index) {
+                <div class="card border-0 mt-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <div class="image-container">
+                                <img [src]="product.image" class="card-img-top" alt="Product image">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body p-0 ps-3">
+                                <h5 class="card-title">{{product.name}}</h5>
+                                <div class="card-text">
+                                    <p class="mb-1">
+                                        <ng-container *ngFor="let star of getStars(product.rating)">
+                                            <i class="text-warning me-1" [ngClass]="star"></i>
+                                        </ng-container>
+                                    </p>
+
+                                    <p class="mb-1">
+                                        <ng-container *ngIf="product.oldPrice > 0; else noOldPrice">
+                                            <span class="new-price">{{ product.newPrice | currency:'INR' }}</span>
+                                            <span class="old-price">{{ product.oldPrice | currency:'INR' }}</span>
+                                        </ng-container>
+                                        <ng-template #noOldPrice>
+                                            <span class="new-price">{{ product.newPrice | currency:'INR' }}</span>
+                                        </ng-template>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" #tabGroup
+                [selectedIndex]="selectedTabIndex">
+                <mat-tab label="Descriptions">
+                    <div class="mt-4 mx-3" [innerHTML]="product.description"></div>
+                </mat-tab>
+                <mat-tab label="Reviews">
+                    <div class="reviewsCont mt-4 mx-3">
+                        <div class="row">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4>Product Reviews</h4>
+                                <div class="d-flex">
+                                    @if (filterValue != 'all' || sortValue != 'recent' || filteredStar) {
+                                    <button class="btn text-primary me-3" (click)="celarFilter()">Clear Filter</button>
+                                    }
+                                    <div class="d-flex justify-content-center align-items-center sortBtn me-3">
+                                        <div class="sortArrowCont">
+                                            <i class="fa fa-arrow-up"></i>
+                                            <i class="fa fa-arrow-down"></i>
+                                        </div>
+                                        <span>Sort: </span>
+
+                                        <mat-select (selectionChange)="filterChange()" [(ngModel)]="sortValue">
+                                            <mat-option value="recent">Recent</mat-option>
+                                            <mat-option value="htol">Rating: High to Low</mat-option>
+                                            <mat-option value="ltoh">Rating: Low to High</mat-option>
+                                        </mat-select>
+
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center filterBtn">
+                                        <i class="fa fa-filter"></i>
+                                        <span>Filter: </span>
+
+                                        <mat-select (selectionChange)="filterChange()" [(ngModel)]="filterValue">
+                                            <mat-option value="all">All Star</mat-option>
+                                            <mat-option value="5">5 Star & Up</mat-option>
+                                            <mat-option value="4">4 Star & Up</mat-option>
+                                            <mat-option value="3">3 Star & Up</mat-option>
+                                            <mat-option value="2">2 Star & Up</mat-option>
+                                            <mat-option value="1">1 Star & Up</mat-option>
+                                        </mat-select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-9">
+                                <div class="row d-flex justify-content-between">
+                                    @for (review of filteredReviews; track $index) {
+                                    <div class="reviewsCard col-6 card p-3 me-2 mt-2">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="imgCont">
+                                                <img [src]="review.profileImage">
+                                            </div>
+                                            <span class="ms-3">{{review.fullName}}</span>
+                                        </div>
+                                        <div class="mb-2">
+                                            @for (star of getStars(review.rating); track $index) {
+                                            <i [class]="'text-warning ' + star"></i>
+                                            }
+                                        </div>
+                                        <div class="mb-2">
+                                            {{review.message}}
+                                        </div>
+                                        <div class="d-flex">
+                                            @for (image of review.images; track $index) {
+                                            <div class="reviewImgCont me-3">
+                                                <img [src]="image" alt="">
+                                            </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-3">
+
+                                <div *ngFor="let star of starRatings">
+                                    <div class="ratingBarCont mt-2 mb-2" [ngClass]="{'active': filteredStar == star}" (click)="filterStarReview(star)">
+                                        <p class="mb-1">Star {{ star }}:</p>
+                                        <div class="d-flex">
+                                            <div class="progress-bar me-2">
+                                                <div class="progress" [style.width.%]="getPercentage(star)"></div>
+                                            </div>
+                                            <span>{{ getPercentage(star) | number: '1.0-0' }}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

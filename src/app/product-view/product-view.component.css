@@ -1,0 +1,362 @@
+.topProducts .image-container {
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #adadad;
+    border-radius: 8px;
+}
+
+.topProducts .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 10px;
+}
+
+.color-items {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+.smallImage {
+    border-radius: 8px;
+    border: 3px solid white;
+    outline: 3px solid transparent;
+}
+
+.sizeBtn {
+    outline: 2px solid #adadad !important;
+    border: none;
+    font-weight: bold;
+}
+
+.smallImage.active,
+.sizeBtn.active,
+.smallImage:hover,
+.sizeBtn:hover {
+    outline-color: #005cbb !important;
+    color: #005cbb;
+}
+
+
+.sizeBtn:disabled {
+    color: #adadad;
+}
+
+.quantityCartCont {
+    display: flex;
+    align-items: center;
+}
+
+.quantityCartCont .quantityCont {
+    border: 2px solid #d2dadf;
+    border-radius: 10px;
+    width: 160px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.quantityCartCont .quantityCont .quantity {
+    position: absolute;
+    top: -10px;
+    left: 36px;
+    background-color: #fff;
+    /* font-weight: 500; */
+    color: #03354c;
+    font-weight: 600;
+}
+
+.quantityCartCont .quantityCont .minus,
+.quantityCartCont .quantityCont .plus {
+    font-size: 22px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    color: #03354c;
+    font-weight: 600;
+    cursor: pointer;
+    transform: translateY(-2px);
+    -webkit-user-select: none;
+    user-select: none;
+    height: 100%;
+    align-items: center;
+}
+
+.quantityCartCont .quantityCont .inputField {
+    font-size: 20px;
+    width: 80px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.mySwiper {
+    width: 100%;
+}
+
+::ng-deep .swiper-slide-shadow {
+    background: none !important;
+}
+
+.bigImage {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 10px #adadad;
+    background-color: white;
+    position: relative;
+}
+
+swiper-container {
+    width: 100%;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+.mySwiper swiper-slide {
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px #333;
+    height: 400px;
+}
+
+
+.mySwiper2 swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.mySwiper2 {
+    height: 80px;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.mySwiper2 swiper-slide {
+    width: 20%;
+    height: 100%;
+    border: 2px solid transparent;
+    padding: 2px;
+}
+
+.mySwiper2 .swiper-slide-thumb-active {
+    border-color: #005cbb !important;
+    color: #005cbb;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #005cbb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.swiper-button-prev {
+    left: -40px;
+}
+
+.swiper-button-next {
+    right: -40px;
+}
+
+.img-zoom-result {
+    border: 1px solid #333;
+    position: absolute;
+    height: 410px;
+    z-index: 999;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    display: none;
+    transform: translateX(-10px);
+    width: calc(100% - 10px);
+    border-radius: 16px;
+
+}
+
+::ng-deep #img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 150px;
+    height: 100px;
+    background-color: #005dbb1e;
+    z-index: 9;
+}
+
+::ng-deep .mdc-tab__text-label {
+    font-size: 18px;
+}
+
+::ng-deep .mdc-tab--active .mat-ripple {
+    background: #005cbb;
+}
+
+::ng-deep .mdc-tab--active .mdc-tab__text-label {
+    font-weight: bold;
+    color: white !important;
+}
+
+::ng-deep .mdc-tab {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+::ng-deep .mat-mdc-tab-label-container {
+    border-bottom: 2px solid #005cbb !important;
+}
+
+.reviewsCont .sortBtn,
+.reviewsCont .filterBtn {
+    position: relative;
+    border: 2px solid #005cbb;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.reviewsCont .sortBtn span,
+.reviewsCont .filterBtn span {
+    position: absolute;
+    left: 36px;
+}
+
+.reviewsCont .filterBtn span {
+    position: absolute;
+    left: 30px;
+}
+
+.reviewsCont .sortBtn .sortArrowCont {
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+}
+
+.reviewsCont .filterBtn i {
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+}
+
+.reviewsCont .sortBtn .sortArrowCont i:nth-child(2) {
+    position: absolute;
+    left: 8px;
+    top: -3px;
+}
+
+.reviewsCont .sortBtn .sortArrowCont i:nth-child(1) {
+    position: absolute;
+    top: -14px;
+}
+
+::ng-deep .reviewsCont .sortBtn .mat-mdc-select,
+::ng-deep .reviewsCont .filterBtn .mat-mdc-select {
+    background: none;
+    z-index: 2;
+
+}
+
+::ng-deep .reviewsCont .sortBtn .mat-mdc-select .mat-mdc-select-trigger,
+::ng-deep .reviewsCont .filterBtn .mat-mdc-select .mat-mdc-select-trigger {
+    padding: 8px 8px 8px 80px;
+}
+
+::ng-deep .reviewsCont .mat-mdc-select-arrow-wrapper {
+    display: none !important;
+}
+
+::ng-deep .reviewsCont .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
+
+::ng-deep .mat-mdc-select-panel {
+    background: white !important;
+}
+
+::ng-deep .cdk-overlay-pane {
+    width: initial !important;
+    height: initial !important;
+}
+
+::ng-deep .mat-mdc-select-panel {
+    max-height: initial !important;
+}
+
+.reviewsCard.col-6 {
+    width: 49% !important;
+}
+
+.reviewsCard .imgCont {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.reviewsCard .reviewImgCont {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.reviewsCard img {
+    width: 100%;
+}
+
+
+/* ratings */
+.ratingBarCont {
+    border: 2px solid transparent;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.ratingBarCont .progress-bar {
+    width: 85%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+}
+
+.ratingBarCont .progress {
+    height: 100%;
+    background-color: #ffc107;
+    transition: width 0.5s ease;
+}
+
+.ratingBarCont:hover span {
+    text-decoration: underline;
+}
+
+.ratingBarCont.active {
+    border-color: #005cbb;
+}
