@@ -51,11 +51,6 @@
     color: #adadad;
 }
 
-.quantityCartCont {
-    display: flex;
-    align-items: center;
-}
-
 .quantityCartCont .quantityCont {
     border: 2px solid #d2dadf;
     border-radius: 10px;
@@ -125,13 +120,17 @@ swiper-container {
     margin-right: auto;
 }
 
+.mySwiper {
+    width: 280px;
+    height: 360px;
+}
+
 .mySwiper swiper-slide {
     background-size: cover;
     background-position: center;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0px 0px 6px #333;
-    height: 400px;
 }
 
 
@@ -308,8 +307,12 @@ swiper-container {
     max-height: initial !important;
 }
 
-.reviewsCard.col-6 {
-    width: 49% !important;
+.reviewsCard {
+    width: 49%;
+}
+
+a {
+    cursor: pointer;
 }
 
 .reviewsCard .imgCont {
@@ -320,8 +323,8 @@ swiper-container {
 }
 
 .reviewsCard .reviewImgCont {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -359,4 +362,35 @@ swiper-container {
 
 .ratingBarCont.active {
     border-color: #005cbb;
+}
+
+@media (max-width: 665px) {
+    .mySwiper {
+        width: 240px;
+        height: 320px;
+    }
+}
+
+@media (max-width: 987px) {
+    .topProducts {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .col-xl-2 {
+        display: -webkit-box;
+        /* flex-wrap: wrap; */
+        overflow-x: auto;
+    }
+
+    .col-xl-2 .ratingBarCont {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviewsCard {
+        width: 100%;
+    }
 }

@@ -25,7 +25,9 @@ const productView: ProductView = {
       message: "This dress is absolutely gorgeous! Perfect for summer events and very comfortable.",
       images: [
         "https://i.pinimg.com/564x/62/27/19/62271966ee39ef849fa499a5620516a3.jpg",
-        "https://images.news18.com/ibnlive/uploads/2023/07/324701978_1386965885429372_493005967462813935_n.jpg"
+        "https://images.news18.com/ibnlive/uploads/2023/07/324701978_1386965885429372_493005967462813935_n.jpg",
+        "https://i.pinimg.com/564x/62/27/19/62271966ee39ef849fa499a5620516a3.jpg",
+        "https://images.news18.com/ibnlive/uploads/2023/07/324701978_1386965885429372_493005967462813935_n.jpg",
       ],
       sellerReply: "Thank you for the lovely feedback, Mary! We're thrilled you love the dress."
     },
@@ -311,7 +313,6 @@ export class ProductViewComponent implements OnInit {
       this.starRatings.forEach(star => {
         this.ratingsCount[star] = this.product.reviews.filter(review => review.rating === star).length;
       });
-      console.log(this.ratingsCount);
 
       this.filterChange();
     });
@@ -328,7 +329,6 @@ export class ProductViewComponent implements OnInit {
       this.activeIndex = swiper.activeIndex;
       this.lens = null;
     });
-    this.tabGroup.selectedIndex = 1;
 
     document.addEventListener('mousemove', (e: MouseEvent) => {
       if (this.isMobile) {

@@ -39,6 +39,18 @@
   position: relative;
 }
 
+.card {
+  cursor: pointer;
+}
+
+.card img {
+  transition: transform .8s ease
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+
 .image-container img {
   width: 100%;
   height: 100%;

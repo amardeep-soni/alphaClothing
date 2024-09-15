@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { Product } from '../interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -51,6 +52,8 @@ export class HomeComponent {
     }
   ];
 
+  constructor(private router: Router) { }
+  
   getStars(rating: number): string[] {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.1;
@@ -62,5 +65,7 @@ export class HomeComponent {
     stars.push(...Array(emptyStars).fill('fa-regular fa-star')); // Empty stars
     return stars;
   }
-
+  productDetails(id: number) {
+    this.router.navigate(['/products', id]);
+  }
 }

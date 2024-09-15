@@ -3,7 +3,8 @@
     <div class="cont h-100">
       <div class="content">
         <h1>Brand New Collection</h1>
-        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eum doloribus et at modi officia molestias
+        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eum doloribus et
+          at modi officia molestias
           minima provident. Enim, eveniet?</p>
 
         <ul class="list-group list-group-horizontal mb-3">
@@ -49,7 +50,7 @@
 
     <div class="row">
       <div class="col-sm-6 col-lg-3 my-2 text-center" *ngFor="let product of products">
-        <div class="card me-2" >
+        <div class="card me-2" (click)="productDetails(0)">
           <div class="image-container">
             <img [src]="product.image" class="card-img-top" alt="Product image">
           </div>
@@ -66,10 +67,10 @@
             </p>
             <div class="text-warning mb-2">
               <ng-container *ngFor="let star of getStars(product.rating)">
-                  <i [ngClass]="star"></i>
+                <i [ngClass]="star"></i>
               </ng-container>
               <span class="text-dark ms-2">({{product.totalUserRated | number}} reviews)</span>
-          </div>
+            </div>
             <p class="mb-2">{{product.category}}</p>
             <button mat-flat-button>
               <mat-icon>add_shopping_cart</mat-icon>
