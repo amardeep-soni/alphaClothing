@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CartDialogComponent } from '../dialog/cart-dialog/cart-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -12,5 +14,15 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  
+  constructor(private dialog: MatDialog) { }
+  cartOpen() {
+    this.dialog.open(CartDialogComponent, {
+      width: '300px',
+      position: {
+        top: '0',
+        right: '0',
+      },
+      panelClass: 'cartDialogContainer',
+    });
+  }
 }

@@ -63,3 +63,16 @@ a:hover {
 .ratingGray {
   color: #d9d9d9;
 }
+
+.cartDialogContainer {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 300px;
+  max-width: initial !important;
+  padding: 16px 0;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,49 @@
+<div class="cart">
+    <div class="top">
+        <p *ngIf="cartList?.length===0" class="title">Your Cart Is Empty</p>
+        <p *ngIf="cartList?.length!=0" class="title">Your Cart ({{totalCart}})</p>
+        <span (click)="close()"><i class="fa fa-xmark text-bold"></i></span>
+    </div>
+    <div class="middle" *ngIf="cartList.length">
+        <div class="itemRow">
+            <div class="imgSec">
+                <img [src]="cartList[0].image" alt="ProductImages" />
+            </div>
+            <div class="textSec">
+                <p class="productName">{{cartList[0].name}}</p>
+                <div class="other">
+                    <p><strong>QTY: </strong>{{cartList[0].quantity}}</p>
+                    <p><strong>Each: </strong>{{cartList[0].price |currency}}</p>
+                </div>
+            </div>
+        </div>
+
+        @for (cart of cartList.slice(1,cartList.length); track $index) {
+        <div class="itemRow pointer" (click)="goToProductDetailPage(cart.productId)" (click)="close()">
+            <div class="imgSec">
+                <img [src]="cart.image" alt="ProductImages" />
+            </div>
+            <div class="textSec">
+                <p class="productName">{{cart.name}}</p>
+                <div class="other">
+                    <p><strong>QTY: </strong>{{cart.quantity}}</p>
+                    <p><strong>Each: </strong>{{cart.price |currency:'INR':'symbol'}}</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="bottom" *ngIf="cartList.length >=1">
+        <div class="first">
+            <p>Estimated Total:</p>
+            <span>{{ totalPrice | currency:'INR':'symbol' }}</span>
+        </div>
+        <div class="second">
+            <button mat-flat-button class="mt-4" [routerLink]="['/cart']">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Add to Cart
+            </button>
+        </div>
+    </div>
+</div>

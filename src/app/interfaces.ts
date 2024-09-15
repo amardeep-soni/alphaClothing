@@ -48,3 +48,11 @@ export interface ProductVariant {
   images: string[];
   quantity: number;
 }
+
+export interface CartView {
+  productId: number;
+  image: string;
+  name: string;
+  quantity: number;
+  price: number;
+}
