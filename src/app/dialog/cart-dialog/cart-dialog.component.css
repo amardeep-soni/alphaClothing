@@ -67,7 +67,7 @@ p {
 }
 
 .middle .itemRow:nth-child(1) .textSec .other {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .middle .itemRow .imgSec {
@@ -80,7 +80,7 @@ p {
 
 .middle .itemRow .textSec .other {
     display: flex;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .middle .itemRow .textSec .other p:nth-child(2) {

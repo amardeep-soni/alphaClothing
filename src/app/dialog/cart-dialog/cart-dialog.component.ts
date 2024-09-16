@@ -13,6 +13,8 @@ const demoCartData: CartView[] = [
     name: 'Wireless Mouse',
     quantity: 2,
     price: 25.99,
+    color: 'red',
+    size: 'XL'
   },
   {
     productId: 0,
@@ -20,6 +22,8 @@ const demoCartData: CartView[] = [
     name: 'Bluetooth Keyboard',
     quantity: 1,
     price: 45.50,
+    color: 'green',
+    size: 'L'
   },
   {
     productId: 0,
@@ -27,6 +31,8 @@ const demoCartData: CartView[] = [
     name: 'USB-C Hub',
     quantity: 3,
     price: 12.75,
+    color: 'blue',
+    size: 'M'
   },
   {
     productId: 0,
@@ -34,6 +40,8 @@ const demoCartData: CartView[] = [
     name: 'Laptop Stand',
     quantity: 1,
     price: 29.99,
+    color: 'pink',
+    size: 'L'
   },
 ];
 

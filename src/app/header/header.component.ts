@@ -17,7 +17,6 @@ export class HeaderComponent {
   constructor(private dialog: MatDialog) { }
   cartOpen() {
     this.dialog.open(CartDialogComponent, {
-      width: '300px',
       position: {
         top: '0',
         right: '0',

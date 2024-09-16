@@ -15,6 +15,10 @@
                     <p><strong>QTY: </strong>{{cartList[0].quantity}}</p>
                     <p><strong>Each: </strong>{{cartList[0].price |currency}}</p>
                 </div>
+                <div class="other">
+                    <p><strong>Color: </strong>{{cartList[0].color}}</p>
+                    <p><strong>Size: </strong>{{cartList[0].size}}</p>
+                </div>
             </div>
         </div>
 
@@ -29,6 +33,10 @@
                     <p><strong>QTY: </strong>{{cart.quantity}}</p>
                     <p><strong>Each: </strong>{{cart.price |currency:'INR':'symbol'}}</p>
                 </div>
+                <div class="other">
+                    <p><strong>Color: </strong>{{cart.color}}</p>
+                    <p><strong>Size: </strong>{{cart.size}}</p>
+                </div>
             </div>
         </div>
         }
@@ -40,9 +48,9 @@
             <span>{{ totalPrice | currency:'INR':'symbol' }}</span>
         </div>
         <div class="second">
-            <button mat-flat-button class="mt-4" [routerLink]="['/cart']">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Add to Cart
+            <button mat-flat-button class="mt-4" (click)="close()" [routerLink]="['/cart']">
+                <mat-icon>shopping_cart</mat-icon>
+                View Cart
             </button>
         </div>
     </div>
