@@ -50,11 +50,24 @@ export interface ProductVariant {
 }
 
 export interface CartView {
-  productId: number;
-  image: string;
-  name: string;
-  quantity: number;
-  price: number;
-  color: string;
-  size: string;
+  // in C 'cart table' P 'with product it fetch from product'
+  productId: number; // C
+  image: string;  // P
+  name: string;  // P
+  quantity: number; // C
+  price: number;  // P
+  color: string;  // C
+  size: string;  // C
+  productQuantity: number;  // P
+}
+
+export interface ShippingAddress {
+  id: number,
+  name: string,
+  state: string;
+  city: string,
+  address: string;
+  phoneNumber1: string;
+  phoneNumber2: string;
+  isDefault: boolean;
 }

@@ -14,7 +14,8 @@ const demoCartData: CartView[] = [
     quantity: 2,
     price: 25.99,
     color: 'red',
-    size: 'XL'
+    size: 'XL',
+    productQuantity: 5
   },
   {
     productId: 0,
@@ -23,7 +24,8 @@ const demoCartData: CartView[] = [
     quantity: 1,
     price: 45.50,
     color: 'green',
-    size: 'L'
+    size: 'L',
+    productQuantity: 3
   },
   {
     productId: 0,
@@ -32,7 +34,8 @@ const demoCartData: CartView[] = [
     quantity: 3,
     price: 12.75,
     color: 'blue',
-    size: 'M'
+    size: 'M',
+    productQuantity: 2
   },
   {
     productId: 0,
@@ -41,7 +44,8 @@ const demoCartData: CartView[] = [
     quantity: 1,
     price: 29.99,
     color: 'pink',
-    size: 'L'
+    size: 'L',
+    productQuantity: 10
   },
 ];
 
