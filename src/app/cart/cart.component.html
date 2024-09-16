@@ -1,0 +1,111 @@
+<div class="minHeader py-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/products']">Products</a></li>
+            <li class="breadcrumb-item active">Cart</li>
+        </ol>
+    </nav>
+    <h1 class="display-2 fw-semibold">Cart Page</h1>
+</div>
+
+<div class="cont">
+    <mat-card class="cartMain my-5 p-3 mx-auto card shadow" *ngIf="cartList.length > 0; else elseBlock1">
+        <h2 class="text-normal">
+            <span>Your Cart ({{totalCart}} items)</span>
+        </h2>
+
+        <div *ngFor="let cart of cartList" class="mb-3 tableRow">
+            <div class="selectCont">
+                <mat-checkbox (change)="onCheck($event, cart)" color="primary"></mat-checkbox>
+            </div>
+            <div class="itemPic">
+                <img [src]="cart.image" alt="ProductImages" />
+            </div>
+            <div class="othersCont">
+                <div class="itemTitle mb-3">
+                    <div class="item">
+                        <h4>{{cart.name}}</h4>
+                        <div class="d-flex">
+                            <p class="mb-0 me-3"><strong>Color: </strong> <span>{{cart.color}}</span></p>
+                            <p class="mb-0"><strong>Size: </strong> <span>{{cart.size}}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemPrice">
+                    <div class="item">
+                        <span class="priceText">{{cart.price |currency:'INR':'symbol'}}</span>
+                    </div>
+                </div>
+                <div class="itemQuantity">
+                    <div class="item">
+                        <div class="quantityCont">
+                            <SPAn class="minus" (click)="qunatityMinus(cart)">-</SPAn>
+                            <input type="text" class="inputField" disabled [value]="cart.quantity">
+                            <span class="plus" (click)="qunatityPlus(cart)">+</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="itemTotal">
+                    <div class="item">
+                        <div class=" d-flex justify-content-end align-items-center">
+                            <strong class="priceText"> {{cart.price*cart.quantity
+                                |currency:'INR':'symbol'}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="totalSection pt-4">
+            <ul>
+                <li>
+                    <div class="left">Sub Total:</div>
+                    <div class="right">
+                        <div class="rightText">{{subTotal |currency:'INR':'symbol'}}</div>
+                    </div>
+                </li>
+
+                <li class="hideBorder">
+                    <div class="left">Grand Total: </div>
+                    <div class="right">
+                        <div class="rightText">{{grandTotal |currency:'INR':'symbol'}}</div>
+                    </div>
+                </li>
+
+                <li class="hideBorder">
+                    <div class="left me-2">Shipping Address: </div>
+                    <div class="right">
+                        <select name="address" id="address" class="address-select" [(ngModel)]="selectedAddressId">
+                            <option value="" disabled selected>Select an address</option>
+                            <option *ngFor="let address of shippingAddress" [value]="address.id">
+                                {{ address.state }} - {{ address.city }} - {{address.address}}
+                            </option>
+                        </select>
+                    </div>
+                </li>
+
+
+                <li class="hideBorder">
+                    <div class="buttonCont my-2 ms-auto">
+                        <button mat-flat-button (click)="checkout()" [routerLink]="['/cart']">
+                            <mat-icon>shopping_cart_checkout</mat-icon>
+                            Check Out
+                        </button>
+                    </div>
+                </li>
+
+                <li class="mt-3 hideBorder">
+                    <div class="text-normal">
+                        Want to pay with a purchase order?
+                        <strong class="text-s">Learn how here.</strong>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </mat-card>
+    <ng-template #elseBlock1>
+        <h3 class="text-normal">You don't have any item in your cart</h3>
+    </ng-template>
+</div>
