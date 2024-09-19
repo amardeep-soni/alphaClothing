@@ -71,3 +71,10 @@ export interface ShippingAddress {
   phoneNumber2: string;
   isDefault: boolean;
 }
+
+export interface User{
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+}
