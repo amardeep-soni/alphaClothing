@@ -9,11 +9,12 @@ import { MatCardModule } from '@angular/material/card';
 import { User } from '../../interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { VerifyCodeDialogComponent } from '../../dialog/verify-code-dialog/verify-code-dialog.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatIconModule, CommonModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatIconModule, CommonModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

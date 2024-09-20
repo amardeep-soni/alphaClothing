@@ -46,8 +46,17 @@
                     one special character.</span>
             </mat-error>
 
-            <button mat-flat-button color="primary" class="mt-4" type="submit"
+            <button mat-flat-button class="mt-3" color="primary" type="submit"
                 [disabled]="registerForm.invalid">Register</button>
         </form>
+
+        <div class="line-container mt-3">
+            <span class="line-text">OR</span>
+        </div>
+
+        <!-- not signed up link -->
+        <div class="my-3 text-center">
+            <button mat-flat-button class="w-100" [routerLink]="['/login']">Already have account</button>
+        </div>
     </mat-card-content>
 </mat-card>

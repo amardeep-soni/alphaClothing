@@ -28,7 +28,7 @@
   position: relative;
 }
 
-.nav-link.active {
+.active {
   color: #005cbb !important;
   font-weight: bold;
 }
