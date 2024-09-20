@@ -23,6 +23,7 @@ export class ForgetPasswordComponent {
   emailDisabled: boolean = false;
   otpReceived: string = '';
   isLoading: boolean = false;
+  codeVerify: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -30,6 +31,8 @@ export class ForgetPasswordComponent {
     // TODO: Send verification mail to user's registered email address
     this.isLoading = true;
     this.emailDisabled = true;
+    this.otpReceived = '';
+    this.code = '';
     setTimeout(() => {
       console.log('Verification email sent successfully');
       // in otp received setting email so that if user changes email by edinging html by inscept then nothing happens
@@ -38,17 +41,18 @@ export class ForgetPasswordComponent {
     }, 2000);
   }
   verifyCode() {
-    // TODO: verify code
+    // TODO: verify code with api call
     this.isLoading = true;
+    this.codeVerify = true;
     setTimeout(() => {
-      console.log('Email and code verified successfully');
+      console.log('Code verified successfully');
       this.isLoading = false;
       this.newPassword = '';
     }, 2000);
   }
 
   changePassword() {
-    // TODO: Change password
+    // TODO: Change password with api call
     console.log(this.otpReceived, this.newPassword);
     this.router.navigate(['/login']);
   }

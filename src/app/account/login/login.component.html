@@ -6,9 +6,9 @@
                 <mat-label>Email</mat-label>
                 <input matInput required [(ngModel)]="email" type="email" name="email" [disabled]="emailDisabled">
                 <button mat-flat-button matSuffix class="m-2" (click)="sendMail()"
-                    *ngIf="email && isOtpForm && !otpReceived">
+                    *ngIf="email && isOtpForm">
                     <mat-spinner *ngIf="isLoading" diameter="20" mode="indeterminate"></mat-spinner>
-                    <span *ngIf="!isLoading">Send</span>
+                    <span *ngIf="!isLoading">{{otpReceived ? 'Resend': 'Send'}}</span>
                 </button>
             </mat-form-field>
 

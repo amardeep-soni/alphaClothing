@@ -46,6 +46,8 @@ export class LoginComponent {
     // TODO: Send verification mail to user's registered email address
     this.isLoading = true;
     this.emailDisabled = true;
+    this.otpReceived = '';
+    this.code = '';
     setTimeout(() => {
       console.log('Verification email sent successfully');
       // in otp received setting email so that if user changes email by edinging html by inscept then nothing happens
