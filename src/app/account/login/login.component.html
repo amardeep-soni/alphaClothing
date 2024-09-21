@@ -1,0 +1,52 @@
+<mat-card class="card">
+    <h2 class="text-center">Welcome Back</h2>
+    <mat-card-content>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput required [(ngModel)]="email" type="email" name="email" [disabled]="emailDisabled">
+                <button mat-flat-button matSuffix class="m-2" (click)="sendMail()"
+                    *ngIf="email && isOtpForm">
+                    <mat-spinner *ngIf="isLoading" diameter="20" mode="indeterminate"></mat-spinner>
+                    <span *ngIf="!isLoading">{{otpReceived ? 'Resend': 'Send'}}</span>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" *ngIf="isOtpForm">
+                <mat-label>Code</mat-label>
+                <input matInput required name="code" [disabled]="!otpReceived" [(ngModel)]="code">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" *ngIf="!isOtpForm">
+                <mat-label>Password</mat-label>
+                <input matInput name="password" [type]="hidePassword ? 'password' : 'text'" required
+                    [(ngModel)]="password">
+                <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" class="me-2">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <!-- forgot password link -->
+            <p class="mt-3 text-end">Forgot your password? <a class="text-primary"
+                    [routerLink]="['/forgot-password']">Reset it</a></p>
+
+
+
+            <button mat-flat-button color="primary" class="mt-3" type="submit" (click)="login()"
+                [disabled]="email && !(password || code)">Login</button>
+        </form>
+
+        <div class="line-container mt-3">
+            <span class="line-text">OR</span>
+        </div>
+
+        <!-- Login with otp -->
+        <div class="my-3 text-center">
+            <button mat-flat-button class="w-100" (click)="otpFormToggle()">Login with {{isOtpForm ? 'Password' :
+                'OTP'}}</button>
+        </div>
+        <div class="my-3 text-center">
+            <button mat-flat-button class="w-100" [routerLink]="['/register']">Create New Account</button>
+        </div>
+    </mat-card-content>
+</mat-card>

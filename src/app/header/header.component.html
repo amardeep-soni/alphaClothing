@@ -30,13 +30,19 @@
     <div class="d-flex mt-0">
       <ul class="navbar-nav flex-row">
         <li>
-          <mat-icon>search</mat-icon>
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
         </li>
-        <li class="mx-2">
-          <mat-icon>account_circle</mat-icon>
+        <li class="mx-2" [routerLink]="['/login']">
+          <button mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
         </li>
         <li (click)="cartOpen()">
-          <mat-icon>shopping_cart</mat-icon>
+          <button mat-icon-button>
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
         </li>
       </ul>
 

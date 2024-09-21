@@ -1,0 +1,21 @@
+.dialog-content {
+    background: #ffffff;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Remove the arrow in Chrome, Safari, and Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove the arrow in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

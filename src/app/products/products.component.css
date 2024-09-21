@@ -45,7 +45,7 @@
 
 .filterHam {
   font-size: 40px;
-  display: none;
+  display: none !important;
 }
 
 .filterHam.close {
@@ -205,6 +205,6 @@ mat-slider {
   }
 
   .filterHam {
-    display: block;
+    display: flex !important;
   }
 }
