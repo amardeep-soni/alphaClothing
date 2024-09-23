@@ -8,9 +8,9 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
-      <div class="offcanvas-body d-flex justify-content-md-center justify-content-start flex-md-row flex-column"
+      <div class="offcanvas-body d-flex justify-content-center flex-md-row flex-column"
         bis_skin_checked="1">
-        <ul class="navbar-nav justify-content-md-center justify-content-start flex-md-grow-1 align-items-center pe-3">
+        <ul class="navbar-nav justify-content-center  flex-md-grow-1 align-items-center pe-3">
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
           </li>
@@ -44,12 +44,13 @@
             <mat-icon>shopping_cart</mat-icon>
           </button>
         </li>
+        <li class="navbar-toggler p-0 border-0" type="button">
+          <i class="fa fa-bars ms-3 h3 mb-0 mt-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar2">
+          </i>
+        </li>
       </ul>
 
-      <button class="navbar-toggler ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
-        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
 
   </div>
